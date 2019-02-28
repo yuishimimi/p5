@@ -3,12 +3,13 @@
     <script src = "p5.min.js"></script>
   </head>
   <body>
-    <h1 id = "dis"> im gonna finish this tonight no work</h1>
+    <h1 id = "dis"></h1>
     <script>
     var w = window.innerWidth;
     var h = window.innerHeight;
     var ball = new ball(); //create global object so we can call it later
     var ballTwo = new ballTwo();
+    var d;
     function setup(){
       createCanvas(w,h);
     }
@@ -18,14 +19,13 @@
       ball.move();
       ballTwo.shows();
       ballTwo.moves();
-   //   ballTwo.tag();
-   //   d = int(dist(ball.x, ball.y, ballTwo.x, ballTwo.y));
+      ballTwo.tag();
     }
     function ball(){//this.whatever ex: this.shirt but if from diff person, ex: kevin.shirt
       this.x = 100;
       this.y = 100;
       this.show = function(){//step one
-        fill(color('red'));
+        fill(color("#EDEDED"));
         strokeWeight(0);
         ellipse(this.x, this.y, 50, 50);
       }
@@ -45,15 +45,15 @@
       }
     }
     function ballTwo(){
-      this.x = 150;
+      this.x = 250;
       this.y = 100;
       this.shows = function(){//step one
-        fill(color('blue'));
-        strokeWeight(0);
-        ellipse(this.x, this.y, 30,30);
+        fill(color('white'));
+        strokeWeight(2);
+        ellipse(this.x, this.y, 50,50);
       }
       this.moves = function(){
-        if(keyIsDown("74") && this.x>25){//keyA
+        if(keyIsDown("74") && this.x>50){//keyA
           this.x -= 10;
         }
         if(keyIsDown("76")&& this.x<w-50){
@@ -67,9 +67,11 @@
         }
       }
      this.tag = function(){
-        if(d <= 70){
-          document.getElementById("dis").innerHTML = d;
+        d = dist(this.x, this.y, ball.x, ball.y);
+        document.getElementById("dis").innerHTML = d;
+        if(d <= 40){
           noLoop();
+          window.alert("you lose");
         }
       }
     }
