@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script src = "p5.min.js">
+    </script>
+  </head>
+  <body>
+    <script>
+    var w = window.innerHTML;
+    var h = window.innerHTML;
+    var weight = 3;
+      function setup(){
+        createCanvas(w, h);
+      }
+      function draw(){
+        strokeWeight(weight);
+        line(mouseX, mouseY, pmouseX, pmouseY);
+        }
+      function keyPressed(){
+        if (keyCode == "38"){
+          weight += 1;
+        }
+        if (keyCOde =="40"){
+          weight += -1;
+        }
+      }
+    </script>
+  </body>
+</html>

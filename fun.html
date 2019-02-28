@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script src= "p5.min.js"></script>
+  </head>
+  <body>
+    <script>
+      var w = window.innerWidth;
+      var h = window.innerHeight;
+      function setup(){
+        createCanvas(w,h);
+      }
+      
+      function draw(){
+        background(color("white"));
+        fill(color("#FFCAB1"));
+        strokeWeight(0);
+        ellipse(random(50,w-50), 100, 50, 50);
+      }
+    </script>
+  </body>
+</html>
